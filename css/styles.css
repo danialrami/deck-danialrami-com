@@ -1,0 +1,703 @@
+/* Main Styles */
+:root {
+    --teal: #78BEBA;
+    --red: #D35233;
+    --yellow: #E7B225;
+    --blue: #2C5AA0;
+    --dark: #111111;
+    --light: #fbf9e2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Slide and Content Container Styles */
+.slide {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.slide:first-of-type {
+    display: flex;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.slide-content {
+    width: 100%;
+    max-width: 1200px;
+    z-index: 10;
+    position: relative;
+}
+
+/* Title Slide */
+.title-slide {
+    text-align: center;
+}
+
+.title-slide h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+    position: relative;
+    display: inline-block;
+}
+
+.title-slide h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--teal), var(--blue));
+}
+
+.title-slide h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--teal);
+}
+
+.title-slide p {
+    font-size: 1.5rem;
+    color: var(--yellow);
+    margin-bottom: 3rem;
+}
+
+/* About Slide */
+.about-slide {
+    text-align: left;
+}
+
+.about-slide h2 {
+    font-size: 2.5rem;
+    color: var(--yellow);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.about-slide h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--yellow), transparent);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-section {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-section.intro {
+    border-left: 3px solid var(--teal);
+}
+
+.about-section.tools {
+    border-left: 3px solid var(--yellow);
+}
+
+.about-section p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-section .quote {
+    font-style: italic;
+    color: var(--teal);
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--teal);
+    margin: 1.5rem 0;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.tool-category {
+    margin-bottom: 1rem;
+}
+
+.tool-category h4 {
+    color: var(--yellow);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.tool-category p {
+    font-size: 1rem;
+    color: var(--light);
+    line-height: 1.4;
+}
+
+/* Case Study Slides */
+.case-study-slide {
+    text-align: left;
+}
+
+.case-study-slide h2 {
+    font-size: 2.5rem;
+    color: var(--teal);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.case-study-slide h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--teal), transparent);
+}
+
+.case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.case-study-section {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-study-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.case-study-section h3 {
+    color: var(--yellow);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.case-study-section p {
+    color: var(--light);
+    font-size: 1rem;
+}
+
+.case-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.case-list li {
+    margin-bottom: 0.7rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    line-height: 1.4;
+}
+
+.case-list li:hover {
+    transform: translateX(5px);
+}
+
+.case-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background-color: var(--teal);
+    border-radius: 50%;
+}
+
+.case-study-section.challenge {
+    border-left: 3px solid var(--red);
+}
+
+.case-study-section.approach {
+    border-left: 3px solid var(--yellow);
+}
+
+.approach .case-list li::before {
+    background-color: var(--yellow);
+}
+
+.case-study-section.implementation {
+    border-left: 3px solid var(--teal);
+}
+
+.implementation .case-list li::before {
+    background-color: var(--teal);
+}
+
+.case-study-section.results {
+    border-left: 3px solid var(--blue);
+}
+
+.results .case-list li::before {
+    background-color: var(--blue);
+}
+
+.portfolio-placeholder {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 2px dashed var(--teal);
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Why Excel Slide */
+.why-excel-slide {
+    text-align: left;
+    z-index: 5;
+}
+
+.why-excel-slide .slide-content {
+    position: relative;
+    z-index: 10;
+}
+
+.why-excel-slide h2 {
+    font-size: 2.5rem;
+    color: var(--yellow);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.why-excel-slide h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--yellow), transparent);
+}
+
+.excel-list {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.excel-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.excel-list li:hover {
+    transform: translateX(10px);
+}
+
+.excel-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background-color: var(--teal);
+    border-radius: 50%;
+}
+
+.excel-list li strong {
+    color: var(--yellow);
+}
+
+/* Contact Slide */
+.contact-slide {
+    text-align: center;
+    z-index: 5;
+}
+
+.contact-slide .slide-content {
+    position: relative;
+    z-index: 10;
+}
+
+.contact-slide h2 {
+    font-size: 2.5rem;
+    color: var(--teal);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-slide h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--teal), var(--blue));
+}
+
+.contact-info {
+    position: relative;
+    z-index: 3;
+    background-color: rgba(17, 17, 17, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 2rem auto 0;
+}
+
+.contact-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--teal);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.contact-info a:hover {
+    color: var(--yellow);
+    transform: translateY(-2px);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--teal), var(--blue));
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.social-link:hover::before {
+    opacity: 0.5;
+}
+
+.social-link i {
+    font-size: 1.8rem;
+    color: var(--light);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* Visual Effects */
+.wave-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.glitch-effect {
+    position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+.glitch-effect::before {
+    left: 2px;
+    color: var(--red);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+    left: -2px;
+    color: var(--blue);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-1px, 1px);
+    }
+    40% {
+        transform: translate(-1px, -1px);
+    }
+    60% {
+        transform: translate(1px, 1px);
+    }
+    80% {
+        transform: translate(1px, -1px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Audio Visualizations */
+.audio-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+    overflow: visible !important;
+}
+
+.audio-wave canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.audio-bars {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+    gap: 5px;
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.audio-bar {
+    width: 5px;
+    background-color: var(--teal);
+    border-radius: 2px;
+    transition: height 0.2s ease;
+}
+
+.circular-audio {
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.circular-audio canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.subtle-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background-color: rgba(17, 17, 17, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.2rem;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, var(--teal), var(--blue));
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title-slide h1 {
+        font-size: 2.5rem;
+    }
+    
+    .title-slide h2 {
+        font-size: 1.8rem;
+    }
+    
+    .title-slide p {
+        font-size: 1.2rem;
+    }
+    
+    .case-study-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .excel-list li {
+        font-size: 1rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+    }
+    
+    .case-list li {
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+    }
+    
+    .case-list li::before {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .about-section p {
+        font-size: 1rem;
+    }
+    
+    .about-section .quote {
+        font-size: 1.1rem;
+    }
+}
