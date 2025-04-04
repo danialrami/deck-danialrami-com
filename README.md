@@ -1,6 +1,6 @@
-# Sound Designer Portfolio Website
+# Deck Website
 
-An interactive, visually dynamic portfolio website for UX Sound Designers featuring audio visualizations and a clean, modern aesthetic.
+An interactive, visually dynamic deck featuring audio visualizations and a clean, modern aesthetic.
 
 ## Features
 
